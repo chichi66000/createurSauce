@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 // import { addSauce } from '../../reducer/actions';
 import { withRouter } from 'react-router-dom';
 import { axiosInstance } from '../../axios';
+
 class AddSauce extends Component {
 
   constructor(props) {
@@ -15,7 +16,8 @@ class AddSauce extends Component {
       mainPepper: '',
       heat: 1,
       image: '',
-      imageURI : null
+      imageURI : null,
+      error: {}
     };
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -87,6 +89,7 @@ class AddSauce extends Component {
   };
 
   render(){ 
+
     return (
       <form className=" lg:w-3/4 mx-2 md:mx-auto my-5 bg-white p-2 rounded " 
       onSubmit= {(event) => this.handleSubmit(event)}
@@ -100,6 +103,7 @@ class AddSauce extends Component {
           id="name" type="text" required name="name"
           onChange={this.handleChange}
           />
+          
         </div>
 
         {/* input manufacturer */}
