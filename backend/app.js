@@ -17,6 +17,7 @@ const app = express();
 
 const sauceRoutes = require('./routes/sauce');
 const userRoutes = require('./routes/user');
+const { dirname } = require('path');
 
 // connecter to mongoDB
 mongoose.connect(process.env.MGD_URI,
@@ -54,9 +55,13 @@ app.use (expressSanitizer());
 app.use('/api/sauces', sauceRoutes);
 app.use('/api/auth', userRoutes);
 
-
+//poitn d'entrée build de react frontend
+app.use('/', express.static(__dirname + '/build'))
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname + 'build', 'index.html'))
+})
 // test 1
-app.use('/images', express.static(path.join(__dirname + '/images')));
+// app.use('/images', express.static(path.join(__dirname + '/images')));
 
 // app.use('/', express.static(__dirname + '/public'))
 // handle Angular as entry point
