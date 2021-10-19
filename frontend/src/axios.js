@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const axiosInstance = axios.create({
-  baseURL: 'http://localhost:5000',
+  baseURL: 'https://createur-sauce.herokuapp.com',
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',

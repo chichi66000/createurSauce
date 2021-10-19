@@ -66,14 +66,14 @@ exports.modifySauce = async (req, res, next) => {
 };
 
 // récupérer tous les sauces 
-exports.getAllSauces =  (req, res) => {
+exports.getAllSauces =  async(req, res) => {
     Sauce.find()
         .then( (sauces) => res.status(200).json(sauces))
         .catch(error =>  res.status(404).json({error}))
 };
 
 // récupérer une sauce particulière
-exports.getOneSauce =  (req, res) => {
+exports.getOneSauce =  async(req, res) => {
     Sauce.findOne({ _id: req.params.id})
         .then((sauce) => res.status(200).json(sauce))
         .catch((error) => res.status(404).json({error}))
