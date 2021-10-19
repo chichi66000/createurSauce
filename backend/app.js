@@ -33,7 +33,7 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTION');
     res.setHeader('Access-Control-Allow-Credentials', true);
 
-    // res.setHeader("Content-Security-Policy", "default-src 'self' https://use.fontawesome.com  ; script-src 'self' 'unsafe-inline' 'unsafe-eval'");
+    res.setHeader("Content-Security-Policy", "default-src 'self' * ; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' * ");
     next();
 })
 
