@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import flame from '../images/flame_bg.png';
+// import flame from '../images/flame_bg.png';
 import { Link} from "react-router-dom";
 import { connect } from 'react-redux';
 import { logout } from '../reducer/actions';
@@ -8,7 +8,8 @@ class Navbar extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      logo: 'https://res.cloudinary.com/dtu1ahoyv/image/upload/v1634653503/flame_bg_vexzz8.png'
     }
     this.toggleButton = this.toggleButton.bind(this);
     this.logout = this.logout.bind(this)
@@ -81,7 +82,7 @@ class Navbar extends Component {
         <div className="flex justify-betwen  mb-2 p-2 ">
           {/* logo + image */}
           <div className = "mx-auto text-center flex justify-between " >
-            <img className="object-fit w-12" src= {flame} alt ="logo flame Piquante"/>
+            <img className="object-fit w-12" src= {this.state.logo} alt ="logo flame Piquante"/>
             <h1 className= "font-bold align-self-center text-red-piquant text-3xl ">Piquante <br/>
               <span className= "text-sm">La meilleur application de notation de sauces</span>
             </h1>

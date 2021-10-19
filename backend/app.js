@@ -33,7 +33,7 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTION');
     res.setHeader('Access-Control-Allow-Credentials', true);
 
-    res.setHeader("Content-Security-Policy", "default-src 'self' * ; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' * ");
+    // res.setHeader("Content-Security-Policy", "default-src * data: ; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' * data: ");
     next();
 })
 
@@ -42,10 +42,11 @@ app.use(bodyParser.json());
 app.use(helmet.contentSecurityPolicy({
   useDefaults: true,
   directives: {
-    "default-src": ["'self'", "https://fonts.gstatic.com/", "https://use.fontawesome.com", "https://fonts.googleapis.com", "*"],
+    "default-src": ["'self'" /* "https://fonts.gstatic.com/", "https://use.fontawesome.com", "https://fonts.googleapis.com" */, "https://res.cloudinary.com"],
     "script-src": ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
-    "style-src": ["'self'", "'unsafe-inline'", "'unsafe-eval'", "fonts.googleapis.com", "use.fontawesome.com"],
-    "font-src": ["https://fonts.gstatic.com/", "https://use.fontawesome.com"]
+  "style-src": ["'self'", "'unsafe-inline'", "'unsafe-eval'", /*"fonts.googleapis.com", "use.fontawesome.com" */],
+    "font-src": [/*"https://fonts.gstatic.com/", "https://use.fontawesome.com"*/],
+    "img-src": ["'self'", "*", "data:"]
   },
 }));
 app.use(cors());
