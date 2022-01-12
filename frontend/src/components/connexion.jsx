@@ -34,9 +34,14 @@ class Connexion extends Component {
       
       // si error envoyer errror message
       (err) =>{
+<<<<<<< HEAD
         console.log("err ", err);
         this.setState({ errors: err, isLoading: false });
         Swal.fire(`Email / Password invalid`)
+=======
+        this.setState({ errors: err.response.data.error, isLoading: false });
+        Swal.fire(`${err.response.data.error}`)
+>>>>>>> 2f9bdc88c9a41b2d167db25a3e32d22d66541838
       }
     )
 
