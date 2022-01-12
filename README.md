@@ -9,3 +9,4 @@ Pour le backend: npm install ; puis nodemon server
 
 Pour le frontend: npm install; puis npm run start
 
+Site déployé sur Heroku: https://createur-sauce.herokuapp.com
